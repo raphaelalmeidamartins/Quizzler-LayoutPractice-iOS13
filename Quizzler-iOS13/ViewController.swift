@@ -51,10 +51,12 @@ class ViewController: UIViewController {
     func setCurrentQuestion() {
         if self.currentQuestion < self.questions.count - 1 {
             self.currentQuestion += 1
+        } else {
+            self.currentQuestion = 0
         }
     }
     
-    func updateQuestionLabel() {        
+    func updateQuestionLabel() {
         self.questionLabel.text = self.questions[self.currentQuestion].question
     }
 }
