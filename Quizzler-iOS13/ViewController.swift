@@ -21,24 +21,41 @@ class ViewController: UIViewController {
     
     struct Question {
         let question: String
-        let answer: Bool
+        let answer: String
     }
     
     let questions: [Question] = [
-        Question(question: "Britney Spears is better than Christina Aguilera", answer: true),
-        Question(question: "Windows is a good operating system", answer: false),
-        Question(question: "Sonic Heroes is an underapreciated masterpiece", answer: true)
+        Question(question: "Britney Spears is better than Christina Aguilera", answer: "True"),
+        Question(question: "Windows is a good operating system", answer: "False"),
+        Question(question: "Sonic Heroes is an underapreciated masterpiece", answer: "True")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.questionLabel.text = self.questions[self.currentQuestion].question
+        self.updateQuestionLabel()
     }
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-    }
+        if sender.currentTitle == self.questions[self.currentQuestion].answer {
+            print("Acertou")
+        } else {
+            print("Errou feio, errou rude")
+        }
 
+        self.setCurrentQuestion()
+        self.updateQuestionLabel()
+    }
+    
+    func setCurrentQuestion() {
+        if self.currentQuestion < self.questions.count - 1 {
+            self.currentQuestion += 1
+        }
+    }
+    
+    func updateQuestionLabel() {        
+        self.questionLabel.text = self.questions[self.currentQuestion].question
+    }
 }
  
