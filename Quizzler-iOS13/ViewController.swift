@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         self.trueButton.isEnabled = true
         self.falseButton.backgroundColor = UIColor.clear
         self.falseButton.isEnabled = true
-        self.progressBar.progress = Float(self.currentQuestion) / Float(self.questions.count)
+        self.progressBar.progress = Float(self.currentQuestion + 1) / Float(self.questions.count)
     }
 }
  
