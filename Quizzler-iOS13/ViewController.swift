@@ -27,12 +27,15 @@ class ViewController: UIViewController {
     let questions: [Question] = [
         Question(question: "Britney Spears is better than Christina Aguilera", answer: "True"),
         Question(question: "Windows is a good operating system", answer: "False"),
-        Question(question: "Sonic Heroes is an underapreciated masterpiece", answer: "True")
+        Question(question: "Sonic Heroes is an underapreciated masterpiece", answer: "True"),
+        Question(question: "Lady Gaga is better on pop music", answer: "True"),
+        Question(question: "Emulating Nintendo games is morally correct", answer: "True"),
+        Question(question: "The Legend of Zelda Breath of the Wild is better than Ocarina of Time", answer: "False"),
+        Question(question: "Learning Swift is cool", answer: "True")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.updateUI()
     }
@@ -53,7 +56,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func setCurrentQuestion() { 
+    func setCurrentQuestion() {
         if self.currentQuestion < self.questions.count - 1 {
             self.currentQuestion += 1
         } else {
@@ -66,7 +69,8 @@ class ViewController: UIViewController {
         self.trueButton.backgroundColor = UIColor.clear
         self.trueButton.isEnabled = true
         self.falseButton.backgroundColor = UIColor.clear
-        self.falseButton.isEnabled = false
+        self.falseButton.isEnabled = true
+        self.progressBar.progress = Float(self.currentQuestion) / Float(self.questions.count)
     }
 }
  
