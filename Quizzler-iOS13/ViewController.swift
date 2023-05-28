@@ -34,21 +34,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.updateQuestionLabel()
+        self.updateUI()
     }
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         if sender.currentTitle == self.questions[self.currentQuestion].answer {
-            print("Acertou")
+            sender.backgroundColor = UIColor.green
         } else {
-            print("Errou feio, errou rude")
+            sender.backgroundColor = UIColor.red
         }
+        
+        sender.isEnabled = false
 
         self.setCurrentQuestion()
-        self.updateQuestionLabel()
+    
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { timer in
+            self.updateUI()
+        }
     }
     
-    func setCurrentQuestion() {
+    func setCurrentQuestion() { 
         if self.currentQuestion < self.questions.count - 1 {
             self.currentQuestion += 1
         } else {
@@ -56,8 +61,12 @@ class ViewController: UIViewController {
         }
     }
     
-    func updateQuestionLabel() {
+    func updateUI() {
         self.questionLabel.text = self.questions[self.currentQuestion].question
+        self.trueButton.backgroundColor = UIColor.clear
+        self.trueButton.isEnabled = true
+        self.falseButton.backgroundColor = UIColor.clear
+        self.falseButton.isEnabled = false
     }
 }
  
