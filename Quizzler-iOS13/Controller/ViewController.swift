@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var falseButton: UIButton!
     
+    @IBOutlet weak var scoreLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,7 @@ class ViewController: UIViewController {
     }
 
     func updateUI() {
+        self.scoreLabel.text = "Score: \(self.quizBrain.score) / \(self.quizBrain.questions.count)"
         self.questionLabel.text = self.quizBrain.getCurrentQuestion().question
         self.trueButton.backgroundColor = UIColor.clear
         self.trueButton.isEnabled = true

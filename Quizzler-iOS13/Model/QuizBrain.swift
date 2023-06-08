@@ -21,16 +21,23 @@ struct QuizzBran {
     
     var currentQuestionIndex = 0
     
+    var score = 0
+    
     mutating func setCurrentQuestion() {
         if self.currentQuestionIndex < self.questions.count - 1 {
             self.currentQuestionIndex += 1
         } else {
+            self.score = 0
             self.currentQuestionIndex = 0
         }
     }
     
-    func checkAnswer(_ userAnswer: String) -> Bool {
-        return userAnswer == self.questions[self.currentQuestionIndex].answer
+    mutating func checkAnswer(_ userAnswer: String) -> Bool {
+        if userAnswer == self.getCurrentQuestion().answer {
+            self.score += 1
+            return true
+        }
+        return false
     }
     
     func getCurrentQuestion() -> Question {

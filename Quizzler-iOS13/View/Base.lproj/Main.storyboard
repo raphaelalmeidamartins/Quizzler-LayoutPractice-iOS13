@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +19,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BQi-pR-rj8">
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4Q-Bf-UOE">
+                                        <rect key="frame" x="166.5" y="0.0" width="81.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLe-QS-IoM" userLabel="QuestionView">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="512"/>
+                                        <rect key="frame" x="20" y="56" width="374" height="456"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Question Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-li-mhO">
-                                                <rect key="frame" x="90.5" y="238" width="193" height="36"/>
+                                                <rect key="frame" x="90.5" y="210" width="193" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -73,7 +79,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
                                             </imageView>
                                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
-                                                <rect key="frame" x="20" y="50.5" width="374" height="2.5"/>
+                                                <rect key="frame" x="20" y="46" width="374" height="11"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.2770131528" green="0.3800790906" blue="0.57570761439999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -118,6 +124,7 @@
                         <outlet property="falseButton" destination="tbn-vQ-GyC" id="x96-Ku-GBr"/>
                         <outlet property="progressBar" destination="TXm-qh-7Xg" id="5fY-Ac-Bb4"/>
                         <outlet property="questionLabel" destination="rSI-li-mhO" id="ZE6-hl-ssD"/>
+                        <outlet property="scoreLabel" destination="V4Q-Bf-UOE" id="hOq-Pe-CGw"/>
                         <outlet property="trueButton" destination="oVw-Hl-IRe" id="D1B-2P-JX5"/>
                     </connections>
                 </viewController>
